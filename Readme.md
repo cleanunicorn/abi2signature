@@ -1,16 +1,16 @@
-Run like
-
+Run
 ```
-Run this like
 nodejs main.js [path-to-abi.json]
+```
 
-Example: nodejs main.js cryptokitties-abi.json
+Example
+```
+nodejs main.js cryptokitties-abi.json
 ```
 
 Output example
 
 ```
-...
 0x95d89b41 -> symbol
 0x9d6fac6f -> cooldowns
 0xa45f4bfc -> kittyIndexToOwner

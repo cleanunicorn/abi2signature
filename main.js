@@ -28,7 +28,7 @@ switch (process.argv[2]) {
             }
         
             signature = web3.eth.abi.encodeFunctionSignature(abiFunction)
-            console.log(signature, "->", abiFunction.name)
+            console.log(signature, "->", "[", abiFunction.type ,"]", abiFunction.name)
         }
         break
     case "func2sig":

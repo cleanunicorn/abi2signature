@@ -1,16 +1,12 @@
 Run
 ```
-nodejs main.js [path-to-abi.json]
+nodejs main.js {command} {path-to-abi.json|function}
 ```
 
-Example
+Example `abi2sig`
 ```
-nodejs main.js cryptokitties-abi.json
-```
-
-Output example
-
-```
+$ node main.js abi2sig cryptokitties-abi.json
+Reading file cryptokitties-abi.json
 0x95d89b41 -> symbol
 0x9d6fac6f -> cooldowns
 0xa45f4bfc -> kittyIndexToOwner
@@ -26,4 +22,11 @@ Output example
 0xe98b7f4d -> getKitty
 0xed60ade6 -> bidOnSiringAuction
 0xf1ca9410 -> gen0CreatedCount
+```
+
+Example `func2sig`
+```
+$ node main.js func2sig "receive()"
+Computing function receive()
+receive() -> 0xa3e76c0f
 ```

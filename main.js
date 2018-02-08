@@ -32,7 +32,7 @@ switch (process.argv[2]) {
         }
         break
     case "func2sig":
-        console.log("Computing function", process.argv[3])    
+        console.log("Computing function signature", process.argv[3])    
         var func = process.argv[3]
         
         console.log(func, "->", web3.eth.abi.encodeFunctionSignature(func))

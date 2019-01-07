@@ -1,11 +1,17 @@
-Run
-```
-nodejs main.js {command} {path-to-abi.json|function}
+# abi2signature
+
+Generates the Ethereum ABI 4 byte signatures if you provide the ABI or the function signature.
+
+## Installation
+```console
+$ npm i -g abi2signature
 ```
 
-Example `abi2sig`
-```
-$ node main.js abi2sig cryptokitties-abi.json
+## Usage examples
+
+#### From stdin
+```console
+$ abi2signature < cryptokitties-abi.json
 Reading file cryptokitties-abi.json
 0x06fdde03 -> [ function ] name
 0x095ea7b3 -> [ function ] approve
@@ -21,8 +27,14 @@ Reading file cryptokitties-abi.json
 0x8c5be1e5 -> [ event ] Approval
 ```
 
-Example `func2sig`
+#### From function string
+```console
+$ abi2signature func2sig "receive(address)"
+Computing function receive(address)
+receive(address) -> 0x9d01174f
 ```
-$ node main.js func2sig "receive()"
-Computing function receive()
-receive() -> 0xa3e76c0f
+
+#### From ABI string
+```console
+$ abi2signature string2sig '[{...your abi...}]' 
+```

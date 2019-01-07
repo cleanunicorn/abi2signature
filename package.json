@@ -1,12 +1,15 @@
 {
   "name": "abi2signature",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "abi transform to function signature",
-  "main": "main.js",
+  "main": "bin/abi2signature",
   "author": "Daniel Luca <daniel.luca@consensys.net>",
   "license": "MIT",
   "dependencies": {
     "eslint": "^4.13.0",
     "web3": "^1.0.0-beta.26"
+  },
+  "bin": {
+    "abi2sig": "./bin/abi2signature"
   }
 }

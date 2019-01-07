@@ -25,14 +25,11 @@ async function main() {
     let contractABI
     switch (process.argv[2]) {
         case "func2sig":
-            console.log("Computing function signature", process.argv[3])
             let func = process.argv[3]
 
             console.log(func, "->", web3.eth.abi.encodeFunctionSignature(func))
             break
         case "string2sig":
-            console.log("Computing function signature")
-
             contractABI = JSON.parse(process.argv[3])
 
             for (i = 0; i < contractABI.length; i++) {

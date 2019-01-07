@@ -12,7 +12,6 @@ $ npm i -g abi2signature
 #### From stdin
 ```console
 $ abi2signature < cryptokitties-abi.json
-Reading file cryptokitties-abi.json
 0x06fdde03 -> [ function ] name
 0x095ea7b3 -> [ function ] approve
 0x18160ddd -> [ function ] totalSupply
@@ -30,7 +29,6 @@ Reading file cryptokitties-abi.json
 #### From function string
 ```console
 $ abi2signature func2sig "receive(address)"
-Computing function receive(address)
 receive(address) -> 0x9d01174f
 ```
 

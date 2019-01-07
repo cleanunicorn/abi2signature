@@ -1,6 +1,6 @@
 {
   "name": "abi2signature",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "abi transform to function signature",
   "main": "bin/abi2signature",
   "author": "Daniel Luca <daniel.luca@consensys.net>",

@@ -21,39 +21,62 @@ for (let i = 0; i < process.argv.length; i++) {
     }
 }
 
-let contractABI
+async function main() {
+    let contractABI
+    switch (process.argv[2]) {
+        case "func2sig":
+            let func = process.argv[3]
 
-switch (process.argv[2]) {
-    case "func2sig":
-        let func = process.argv[3]
+            console.log(func, "->", web3.eth.abi.encodeFunctionSignature(func))
+            break
+        case "string2sig":
+            contractABI = JSON.parse(process.argv[3])
 
-        console.log(func, "->", web3.eth.abi.encodeFunctionSignature(func))
-        break
-    case "string2sig":
-        contractABI = JSON.parse(process.argv[3])
+            for (i = 0; i < contractABI.length; i++) {
+                abiFunction = contractABI[i]
 
-        for (i = 0; i < contractABI.length; i++) {
-            abiFunction = contractABI[i]
+                if (abiFunction.name == undefined) {
+                    continue
+                }
 
-            if (abiFunction.name == undefined) {
-                continue
+                signature = web3.eth.abi.encodeFunctionSignature(abiFunction)
+                console.log(signature, "->", "[", abiFunction.type, "]", abiFunction.name)
             }
+            break
+        default:
+            contractABI = JSON.parse(await readStdin());
 
-            signature = web3.eth.abi.encodeFunctionSignature(abiFunction)
-            console.log(signature, "->", "[", abiFunction.type, "]", abiFunction.name)
-        }
-        break
-    default:
-        contractABI = JSON.parse(fs.readFileSync(process.stdin.fd).toString('utf8'));
+            for (i = 0; i < contractABI.length; i++) {
+                abiFunction = contractABI[i]
 
-        for (i = 0; i < contractABI.length; i++) {
-            abiFunction = contractABI[i]
+                if (abiFunction.name == undefined) {
+                    continue
+                }
 
-            if (abiFunction.name == undefined) {
-                continue
+                signature = web3.eth.abi.encodeFunctionSignature(abiFunction)
+                console.log(signature, "->", "[", abiFunction.type, "]", abiFunction.name)
             }
-
-            signature = web3.eth.abi.encodeFunctionSignature(abiFunction)
-            console.log(signature, "->", "[", abiFunction.type, "]", abiFunction.name)
-        }
+    }
 }
+
+async function readStdin() {
+    process.stdin.setEncoding('utf8');
+
+    let abi = '';
+
+    process.stdin.on('readable', () => {
+        const chunk = process.stdin.read();
+
+        if (chunk != null) {
+            abi = abi + chunk;
+        }
+    });
+
+    return new Promise((resolve, reject) => {
+        process.stdin.on('end', () => {
+            resolve(abi);
+        });
+    });
+}
+
+main()

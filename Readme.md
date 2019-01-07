@@ -39,7 +39,7 @@ $ abi2signature string2sig '[{...your abi...}]'
 
 #### Vyper one liner
 ```console
-$ vyper -f abi contracts/uniswap_exchange.vy | abi2sig
+$ vyper -f abi contracts/uniswap_exchange.vy | abi2signature
 ```
 
 #### Solidity one liner

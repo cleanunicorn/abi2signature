@@ -36,3 +36,16 @@ receive(address) -> 0x9d01174f
 ```console
 $ abi2signature string2sig '[{...your abi...}]' 
 ```
+
+#### Vyper one liner
+```console
+$ vyper -f abi contracts/uniswap_exchange.vy | abi2sig
+```
+
+#### Solidity one liner
+Solidity outputs a header so I could not find a way to do this
+```console
+$ solc --abi --pretty-json contracts/ballot.sol | abi2signature
+======= contracts/ballot.sol:Crowdfunding =======
+...
+```

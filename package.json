@@ -1,6 +1,6 @@
 {
   "name": "abi2signature",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "abi transform to function signature",
   "main": "bin/abi2signature",
   "author": "Daniel Luca <daniel.luca@consensys.net>",
@@ -10,7 +10,7 @@
     "web3": "^1.0.0-beta.26"
   },
   "bin": {
-    "abi2sig": "./bin/abi2signature"
+    "abi2signature": "./bin/abi2signature"
   },
   "repository": {
     "type": "git",

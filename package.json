@@ -1,6 +1,6 @@
 {
   "name": "abi2signature",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "abi transform to function signature",
   "main": "bin/abi2signature",
   "author": "Daniel Luca <daniel.luca@consensys.net>",
@@ -11,5 +11,16 @@
   },
   "bin": {
     "abi2sig": "./bin/abi2signature"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cleanunicorn/abi2signature.git"
+  },
+  "keywords": [
+    "ethereum",
+    "solidity",
+    "vyper",
+    "abi",
+    "evm"
+  ]
 }
